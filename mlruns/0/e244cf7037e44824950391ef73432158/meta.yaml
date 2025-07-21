@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/user1/Data/mlops/brain_mri/mlruns/0/e244cf7037e44824950391ef73432158/artifacts
+end_time: 1753624679819
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e244cf7037e44824950391ef73432158
+run_name: skittish-shrimp-555
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753624679480
+status: 3
+tags: []
+user_id: user1

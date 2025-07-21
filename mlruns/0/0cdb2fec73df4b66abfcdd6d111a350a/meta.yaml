@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/user1/Data/mlops/brain_mri/mlruns/0/0cdb2fec73df4b66abfcdd6d111a350a/artifacts
+end_time: 1753623747073
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0cdb2fec73df4b66abfcdd6d111a350a
+run_name: exultant-mouse-191
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753623746845
+status: 3
+tags: []
+user_id: user1

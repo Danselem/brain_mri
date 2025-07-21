@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/user1/Data/mlops/brain_mri/mlruns/940519646729953488/3505a349871242b58432da26dc15700e/artifacts
+end_time: 1753626350738
+entry_point_name: ''
+experiment_id: '940519646729953488'
+lifecycle_stage: active
+run_id: 3505a349871242b58432da26dc15700e
+run_name: lyrical-flea-638
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753626295276
+status: 3
+tags: []
+user_id: user1

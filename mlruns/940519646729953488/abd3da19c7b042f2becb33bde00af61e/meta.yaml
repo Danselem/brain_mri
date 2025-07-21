@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/user1/Data/mlops/brain_mri/mlruns/940519646729953488/abd3da19c7b042f2becb33bde00af61e/artifacts
+end_time: 1753627022997
+entry_point_name: ''
+experiment_id: '940519646729953488'
+lifecycle_stage: active
+run_id: abd3da19c7b042f2becb33bde00af61e
+run_name: adaptable-sow-320
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753627022653
+status: 3
+tags: []
+user_id: user1

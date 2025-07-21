@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/user1/Data/mlops/brain_mri/mlruns/940519646729953488/dc5269eb754b42c0bc84b9cc67680049/artifacts
+end_time: 1753625245498
+entry_point_name: ''
+experiment_id: '940519646729953488'
+lifecycle_stage: active
+run_id: dc5269eb754b42c0bc84b9cc67680049
+run_name: capable-auk-759
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625105780
+status: 3
+tags: []
+user_id: user1

@@ -1,0 +1,10 @@
+artifact_location: file:///Users/user1/Data/mlops/brain_mri/mlruns/940519646729953488/models/m-4a51a2fbc5874443a39470d009717065/artifacts
+creation_timestamp: 1753625241524
+experiment_id: '940519646729953488'
+last_updated_timestamp: 1753625245478
+model_id: m-4a51a2fbc5874443a39470d009717065
+model_type: null
+name: model
+source_run_id: dc5269eb754b42c0bc84b9cc67680049
+status: 2
+status_message: null

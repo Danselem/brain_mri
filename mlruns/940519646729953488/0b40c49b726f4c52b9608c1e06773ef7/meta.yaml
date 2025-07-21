@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/user1/Data/mlops/brain_mri/mlruns/940519646729953488/0b40c49b726f4c52b9608c1e06773ef7/artifacts
+end_time: 1753628200996
+entry_point_name: ''
+experiment_id: '940519646729953488'
+lifecycle_stage: active
+run_id: 0b40c49b726f4c52b9608c1e06773ef7
+run_name: defiant-pig-513
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753628146674
+status: 3
+tags: []
+user_id: user1

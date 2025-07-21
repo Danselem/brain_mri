@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/user1/Data/mlops/brain_mri/mlruns/940519646729953488/338b1e509a414fcaa91178ad8b4fdcbc/artifacts
+end_time: 1753627773276
+entry_point_name: ''
+experiment_id: '940519646729953488'
+lifecycle_stage: active
+run_id: 338b1e509a414fcaa91178ad8b4fdcbc
+run_name: popular-seal-587
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753627772979
+status: 4
+tags: []
+user_id: user1

@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/user1/Data/mlops/brain_mri/mlruns/0/00f3c2f983f44542be533195c9e50a0b/artifacts
+end_time: 1753624493173
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 00f3c2f983f44542be533195c9e50a0b
+run_name: fearless-stag-75
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753624492912
+status: 3
+tags: []
+user_id: user1

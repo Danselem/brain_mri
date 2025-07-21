@@ -1,0 +1,17 @@
+numpy
+matplotlib
+seaborn
+scikit-learn
+mlflow
+prefect
+psycopg-binary
+psycopg2-binary
+psycopg
+evidently
+python-dotenv
+kagglehub
+jupyterlab
+torch
+torchvision
+tensorboard
+hyperopt

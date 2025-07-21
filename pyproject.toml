@@ -1,0 +1,25 @@
+[project]
+name = "brain-mri"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "evidently>=0.7.11",
+    "hyperopt>=0.2.7",
+    "jupyterlab>=4.4.5",
+    "kagglehub>=0.3.12",
+    "matplotlib>=3.10.3",
+    "mlflow>=3.1.1",
+    "numpy>=2.2.6",
+    "prefect>=3.4.9",
+    "psycopg>=3.2.9",
+    "psycopg-binary>=3.2.9",
+    "psycopg2-binary>=2.9.10",
+    "python-dotenv>=1.1.1",
+    "scikit-learn>=1.7.1",
+    "seaborn>=0.13.2",
+    "tensorboard>=2.20.0",
+    "torch>=2.7.1",
+    "torchvision>=0.22.1",
+]

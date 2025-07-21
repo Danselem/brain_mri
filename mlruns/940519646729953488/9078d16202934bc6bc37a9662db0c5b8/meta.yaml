@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/user1/Data/mlops/brain_mri/mlruns/940519646729953488/9078d16202934bc6bc37a9662db0c5b8/artifacts
+end_time: 1753627449028
+entry_point_name: ''
+experiment_id: '940519646729953488'
+lifecycle_stage: active
+run_id: 9078d16202934bc6bc37a9662db0c5b8
+run_name: bustling-shrimp-776
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753627394978
+status: 3
+tags: []
+user_id: user1
