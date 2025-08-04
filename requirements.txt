@@ -14,4 +14,7 @@ jupyterlab
 torch
 torchvision
 tensorboard
-hyperopt
+onnx
+pytest
+isort
+black

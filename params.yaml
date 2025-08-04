@@ -1,8 +1,10 @@
 data:
-  raw_data_path: data/raw/brain-tumor-mri'
+  raw_data_path: data/brain-tumor-mri
 
 artifacts:
-  model_path: models/best_model.pth
+  model_path: models/best_model.pt
+  onnx_path: app/models/best_model.onnx
 
 reports:
-  model_metrics_path: reports/model_metrics.csv
+  image_path: reports/images/batch_visualization.png
+  history_path: reports/images/history.png

@@ -1,7 +1,21 @@
-import numpy as np
-import matplotlib.pyplot as plt
+from pathlib import Path
 
-def visualize_batch(train_loader, train_dataset, mean=None, std=None, images_per_row=4, figsize=(15, 15)):
+import matplotlib.pyplot as plt
+import numpy as np
+import yaml
+from prefect import task, flow
+
+paramas_file = Path("params.yaml")
+config = yaml.safe_load(open(paramas_file, encoding="utf-8"))
+
+image_path = config["reports"]["image_path"]
+
+Path(image_path).parent.mkdir(parents=True, exist_ok=True)
+
+@task(name="visualize_batch", log_prints=True)
+def visualize_batch(
+    train_loader, train_dataset, mean=None, std=None, images_per_row=4, figsize=(15, 15)
+):
     """
     Visualizes a batch of images from a DataLoader.
 
@@ -41,10 +55,9 @@ def visualize_batch(train_loader, train_dataset, mean=None, std=None, images_per
     for i, ax in enumerate(axes):
         if i < num_images:
             ax.imshow(images[i])
-            ax.set_title(f'Label: {train_dataset.classes[labels[i]]}')
-        ax.axis('off')
+            ax.set_title(f"Label: {train_dataset.classes[labels[i]]}")
+        ax.axis("off")
 
     plt.tight_layout()
-    plt.show()
-
-
+    plt.savefig(image_path, dpi=200, bbox_inches="tight")
+    plt.close()

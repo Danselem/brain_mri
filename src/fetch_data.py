@@ -1,12 +1,13 @@
 import shutil
-import kagglehub
 from pathlib import Path
+
+import kagglehub
 
 # Download dataset
 cached_path = kagglehub.dataset_download("masoudnickparvar/brain-tumor-mri-dataset")
 
 # Define your desired destination
-destination = Path("data/raw/brain-tumor-mri")
+destination = Path("data/")
 
 destination.mkdir(parents=True, exist_ok=True)
 

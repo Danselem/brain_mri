@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+onnxruntime
+torchvision
+pillow
+numpy
+python-multipart

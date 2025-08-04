@@ -1,6 +1,0 @@
-artifact_location: file:///Users/user1/Data/mlops/brain_mri/mlruns/940519646729953488
-creation_time: 1753624644067
-experiment_id: '940519646729953488'
-last_update_time: 1753624644067
-lifecycle_stage: active
-name: TumorClassifier_EfficientTuning

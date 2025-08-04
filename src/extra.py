@@ -1,15 +1,24 @@
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, roc_auc_score
-import matplotlib.pyplot as plt
 import io
+import os
+import random
+
+import matplotlib.pyplot as plt
 import mlflow
 import mlflow.pytorch
 import numpy as np
-import random
-import os
-from utils import plot_metric, evaluate
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.metrics import (
+    accuracy_score,
+    f1_score,
+    precision_score,
+    recall_score,
+    roc_auc_score,
+)
+
+from utils import evaluate, plot_metric
+
 
 def set_seed(seed=42):
     random.seed(seed)
@@ -19,6 +28,7 @@ def set_seed(seed=42):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
     os.environ["PYTHONHASHSEED"] = str(seed)
+
 
 class TumorClassifier(nn.Module):
     def __init__(self, num_classes, dropout=0.0):
@@ -35,24 +45,25 @@ class TumorClassifier(nn.Module):
             nn.Linear(32 * 56 * 56, 128),
             nn.ReLU(inplace=True),
             nn.Dropout(dropout),
-            nn.Linear(128, num_classes)
+            nn.Linear(128, num_classes),
         )
+
     def forward(self, x):
         x = self.features(x)
         x = x.view(x.size(0), -1)
         return self.classifier(x)
 
 
-
-def train_and_log(train_loader, val_loader, device, num_classes=4, epochs=10, lr=1e-3, dropout=0.1):
+def train_and_log(
+    train_loader, val_loader, device, num_classes=4, epochs=10, lr=1e-3, dropout=0.1
+):
     set_seed(42)
-    
+
     if mlflow.active_run():
         mlflow.end_run()
     mlflow.set_experiment("TumorClassifier_NoTuning")
-    
+
     class_names = list(train_loader.dataset.class_to_idx.keys())
-    
 
     with mlflow.start_run():
         model = TumorClassifier(num_classes=num_classes, dropout=dropout).to(device)
@@ -88,8 +99,8 @@ def train_and_log(train_loader, val_loader, device, num_classes=4, epochs=10, lr
             train_loss = running_loss / len(train_loader.dataset)
             train_acc = accuracy_score(all_labels, all_preds)
 
-            val_loss, val_acc, val_precision, val_recall, val_f1, val_roc_auc = evaluate(
-                model, val_loader, criterion, device, num_classes
+            val_loss, val_acc, val_precision, val_recall, val_f1, val_roc_auc = (
+                evaluate(model, val_loader, criterion, device, num_classes)
             )
 
             train_loss_hist.append(train_loss)
@@ -97,17 +108,20 @@ def train_and_log(train_loader, val_loader, device, num_classes=4, epochs=10, lr
             train_acc_hist.append(train_acc)
             val_acc_hist.append(val_acc)
 
-            mlflow.log_metrics({
-                "train_loss": train_loss,
-                "train_accuracy": train_acc,
-                "val_loss": val_loss,
-                "val_accuracy": float(val_acc),
-                "val_precision": val_precision,
-                "val_recall": val_recall,
-                "val_f1": val_f1,
-                "val_roc_auc": val_roc_auc,
-                "learning_rate": scheduler.get_last_lr()[0]
-            }, step=epoch)
+            mlflow.log_metrics(
+                {
+                    "train_loss": train_loss,
+                    "train_accuracy": train_acc,
+                    "val_loss": val_loss,
+                    "val_accuracy": float(val_acc),
+                    "val_precision": val_precision,
+                    "val_recall": val_recall,
+                    "val_f1": val_f1,
+                    "val_roc_auc": val_roc_auc,
+                    "learning_rate": scheduler.get_last_lr()[0],
+                },
+                step=epoch,
+            )
 
             scheduler.step()
 
@@ -115,7 +129,9 @@ def train_and_log(train_loader, val_loader, device, num_classes=4, epochs=10, lr
                 best_val_acc = val_acc
                 best_model_state = model.state_dict()
 
-            print(f"Epoch {epoch+1}/{epochs} - Train loss: {train_loss:.4f}, Train acc: {train_acc:.4f}, Val loss: {val_loss:.4f}, Val acc: {val_acc:.4f}")
+            print(
+                f"Epoch {epoch+1}/{epochs} - Train loss: {train_loss:.4f}, Train acc: {train_acc:.4f}, Val loss: {val_loss:.4f}, Val acc: {val_acc:.4f}"
+            )
 
         # Plot and log loss/accuracy history
         plot_metric(train_loss_hist, val_loss_hist, "Loss", "loss_history.png")
@@ -132,7 +148,10 @@ def train_and_log(train_loader, val_loader, device, num_classes=4, epochs=10, lr
 
             example_input = torch.randn(1, 3, 224, 224).cpu()
             try:
-                mlflow.pytorch.log_model(model, name="model", ) # input_example=example_input
+                mlflow.pytorch.log_model(
+                    model,
+                    name="model",
+                )  # input_example=example_input
             except Exception as e:
                 print(f"Failed to log model: {e}")
 
