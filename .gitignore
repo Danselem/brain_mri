@@ -200,6 +200,7 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+.DS_Store
 
 # Marimo
 marimo/_static/
@@ -213,4 +214,4 @@ best_model.pth
 .github/workflows/ci-cd.yml
 models/best_model.pt
 models/best_model.onnx
-data/brain-tumor-mri/*
+data/*
