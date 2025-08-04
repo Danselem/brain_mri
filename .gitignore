@@ -211,7 +211,8 @@ notebook/runs/
 mlruns/
 best_model.pth
 
-.github/workflows/ci-cd.yml
+# .github/workflows/ci-cd.yml
 models/best_model.pt
 models/best_model.onnx
-data/*
+data/brain-tumor-mri/*
+!data/brain-tumor-mri/.gitkeep
